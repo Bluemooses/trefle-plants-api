@@ -1,3 +1,3 @@
 import { combineReducers } from "redux";
-
-export default combineReducers({});
+import currentHero from "./currentHeroReducer";
+export default combineReducers({ currentHero });
