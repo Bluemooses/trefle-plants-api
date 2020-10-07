@@ -2,17 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Button, Input } from "semantic-ui-react";
 import axios from "axios";
 import CharacterCard from "../CharacterCard/CharacterCard";
+import { useDispatch } from "react-redux";
 
 function CharacterSearch(props) {
   //declaring variables for Marvel API
-  const publicKey = props.publicKey;
-  const hash = props.hash;
-  const ts = props.ts;
-  const opts = `characters`; // whatever parameters you want, e.g., `characters/1009215`.
-
+  const dispatch = useDispatch();
   const [superHero, setSuperHero] = useState("");
   const [heroDetails, setHeroDetails] = useState({});
-  const url = `https://gateway.marvel.com/v1/public/${opts}?name=${superHero}&apikey=${publicKey}&hash=${hash}&ts=${ts}`; // putting it all together
 
   useEffect(() => {
     console.log("UseEffect", heroDetails);
@@ -20,13 +16,16 @@ function CharacterSearch(props) {
 
   const getSuperHero = () => {
     console.log(superHero);
-    axios
-      .get(url) // library of your choice
-      .then((res) => {
-        setHeroDetails(res.data.data.results);
-        console.log(heroDetails);
-      }) // process data
-      .catch((err) => console.warn(err)); // handle errors
+    //dispatch to saga here
+
+    dispatch({ type: "GET_MARVEL_HERO", payload: superHero });
+    // axios
+    //   .get(url) // library of your choice
+    //   .then((res) => {
+    //     setHeroDetails(res.data.data.results);
+    //     console.log(heroDetails);
+    //   }) // process data
+    //   .catch((err) => console.warn(err)); // handle errors
   };
 
   return (
