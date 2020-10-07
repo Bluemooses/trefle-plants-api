@@ -1,8 +1,9 @@
 const express = require("express");
+const router = express.Router();
+
 const pool = require("../modules/pool");
 const axios = require("axios");
 const md5 = require("md5");
-const router = express.Router();
 const publicKey = process.env.REACT_APP_MARVEL_PUBLIC_KEY;
 const privateKey = process.env.REACT_APP_MARVEL_PRIVATE_KEY;
 const ts = Date.now();
@@ -14,12 +15,10 @@ const hash = md5(ts + privateKey + publicKey);
 /**
  * GET route template
  */
-router.get("/hero-search", async (req, res, next) => {
-  try {
-    axios.get();
-  } catch (error) {
-    next(error);
-  }
+router.get("/hero-search/:id", (req, res, next) => {
+  console.log(req.body);
+  console.log(req.params);
+  res.send(req.params);
 });
 
 /**
