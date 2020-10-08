@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import md5 from "md5";
 import CharacterSearch from "../components/CharacterSearch/CharacterSearch";
+import CharacterComics from "../components/CharacterComics/CharacterComics";
 
 //requirements for MARVEL API calls
 const publicKey = process.env.REACT_APP_MARVEL_PUBLIC_KEY;
@@ -19,6 +20,7 @@ function App() {
           hash={hash}
           ts={ts}
         />
+        <CharacterComics />
       </header>
     </div>
   );

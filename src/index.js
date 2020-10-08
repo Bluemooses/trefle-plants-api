@@ -8,7 +8,7 @@ import logger from "redux-logger";
 
 import { Provider } from "react-redux";
 
-import rootReducer from "./redux/reducers/index"; // imports ./redux/reducers/index.js
+import rootReducer from "./redux/index"; // imports ./redux/reducers/index.js
 import rootSaga from "./sagas/sagas"; // imports ./redux/sagas/index.js
 
 import "semantic-ui-css/semantic.min.css";
