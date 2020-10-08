@@ -15,11 +15,7 @@ const hash = md5(ts + privateKey + publicKey);
 /**
  * GET route template
  */
-router.get("/hero-search/:id", (req, res, next) => {
-  console.log(req.body);
-  console.log(req.params);
-  res.send(req.params);
-});
+router.get("/hero-search/:id", (req, res, next) => {});
 
 /**
  * POST route template

@@ -3,14 +3,11 @@ import axios from "axios";
 
 function* getMarvelHero(action) {
   try {
-    const heroName = { hero: action.payload };
-    console.log(action.payload);
-    const response = yield axios.get(
-      `/api/calling/hero-search/${heroName.hero}`,
-      heroName
+    const response = axios.get(
+      `https://trefle.io/api/v1/plants?filter_not%5Bmaximum_height_cm%5D=null&filter%5Bligneous_type%5D=tree&order%5Bmaximum_height_cm%5D=desc&token=${process.env.REACT_APP_TREFLE_API_KEY}`
     );
     console.log(response);
-    yield put({ type: "SET_CURRENT_HERO", payload: response.data });
+    yield put({ type: "SET_CURRENT_HERO" });
   } catch (error) {
     console.log(error);
   }
