@@ -16,7 +16,7 @@ app.use(cors());
 
 //Routes
 app.use("/api/calling", callingRouter);
-app.use("/trefle", trefleRouter);
+app.use("/api/trefle", trefleRouter);
 
 // Serve static files
 app.use(express.static("build"));
