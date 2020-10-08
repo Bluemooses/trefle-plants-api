@@ -16,17 +16,7 @@ function CharacterSearch(props) {
   }, [heroDetails]);
 
   const getSuperHero = () => {
-    console.log(superHero);
-    //dispatch to saga here
-
     dispatch({ type: "GET_MARVEL_HERO", payload: superHero });
-    // axios
-    //   .get(url) // library of your choice
-    //   .then((res) => {
-    //     setHeroDetails(res.data.data.results);
-    //     console.log(heroDetails);
-    //   }) // process data
-    //   .catch((err) => console.warn(err)); // handle errors
   };
 
   return (
