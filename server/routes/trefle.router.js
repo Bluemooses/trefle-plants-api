@@ -24,7 +24,7 @@ router.get(`/:hero`, (req, res) => {
     .then((response) => {
       console.log(response.data.data.results);
 
-      res.send(response.data);
+      res.send(response.data.data.results);
     })
     .catch((error) => console.log(error));
 });

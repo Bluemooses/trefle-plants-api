@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Button, Input } from "semantic-ui-react";
 import axios from "axios";
 import CharacterCard from "../CharacterCard/CharacterCard";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 function CharacterSearch(props) {
   //declaring variables for Marvel API
   const dispatch = useDispatch();
+  const heroDetails = useSelector((state) => state.currentHero);
+
   const [superHero, setSuperHero] = useState("");
-  const [heroDetails, setHeroDetails] = useState({});
 
   useEffect(() => {
     console.log("UseEffect", heroDetails);

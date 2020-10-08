@@ -9,9 +9,9 @@ function* getMarvelHero(action) {
       withCredentials: true,
     };
     const response = yield axios.get(`/api/trefle/${action.payload}`, config);
-    console.log(response.data.data.results);
-    const payloadObject = { payload: response.data.data.results };
-    const payload = response.data.data.results;
+    console.log(response);
+    const payload = response.data;
+
     yield put({ type: "SET_CURRENT_HERO", payload });
   } catch (error) {
     console.log(error);
