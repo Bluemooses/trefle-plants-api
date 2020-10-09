@@ -29,10 +29,21 @@ function* getComicsByHero(action) {
     console.log(error);
   }
 }
+function* getHeroes() {
+  try {
+    const response = yield axios.get("/api/trefle/heroes/comics", config);
+    console.log(response);
+
+    yield put({ type: "SET_HERO_LIST", payload: response.data });
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 function* heroSaga() {
   yield takeLatest("GET_MARVEL_HERO", getMarvelHero);
   yield takeLatest("GET_COMICS_BY_HERO", getComicsByHero);
+  yield takeLatest("GET_HEROES", getHeroes);
 }
 
 export default heroSaga;

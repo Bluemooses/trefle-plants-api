@@ -14,7 +14,7 @@ function CharacterComics(props) {
             {comics.results.map((comic) => {
               const imageSrc = `${comic.thumbnail.path}/portrait_xlarge.${comic.thumbnail.extension}`;
               return (
-                <Card>
+                <Card key={comic.id}>
                   <Card.Header>{comic.title}</Card.Header>
                   <Image src={imageSrc} alt={comic.title}></Image>
                 </Card>

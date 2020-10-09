@@ -14,6 +14,7 @@ const hash = md5(ts + privateKey + publicKey);
  * This handles searching the initial hero
  */
 router.get(`/:hero`, (req, res) => {
+  console.log("hello");
   const hero = req.params.hero;
   axios
     .get(
@@ -40,6 +41,26 @@ router.get("/comics/:hero", (req, res) => {
     })
     .catch((err) => console.warn(err));
 });
+
+/**
+ * GET MARVEL LIST
+ */
+router.get(`/heroes/comics`, (req, res) => {
+  console.log("not hit why");
+  const url = `https://gateway.marvel.com:443/v1/public/characters?orderBy=name&apikey=${publicKey}&hash=${hash}&ts=${ts}`;
+  const newUrl = `https://gateway.marvel.com:443/v1/public/characters?apikey=${publicKey}&hash=${hash}&ts=${ts}`;
+  const TestUrl = `https://gateway.marvel.com:443/v1/public/characters?apikey=2a716a4ff9744ce4574105f6d99a04c4
+`;
+  axios
+    .get(url)
+    .then((response) => {
+      console.log(response.data.data.results);
+      const resultsToSend = response.data.data.results;
+      res.send(resultsToSend);
+    })
+    .catch((err) => console.log(err));
+});
+
 /**
  * POST route template
  */
