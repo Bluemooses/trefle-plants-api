@@ -20,7 +20,6 @@ function CharacterSearch(props) {
   const getSuperHero = () => {
     dispatch({ type: "GET_MARVEL_HERO", payload: superHero });
     dispatch({ type: "NEW_HERO_SEARCHED" });
-    dispatch({ type: "GET_HEROES" });
   };
 
   return (
