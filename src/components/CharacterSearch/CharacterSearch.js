@@ -9,7 +9,7 @@ function CharacterSearch(props) {
   const heroDetails = useSelector((state) => state.currentHero);
   const heroes = useSelector((state) => state.allHeroes);
   const [superHero, setSuperHero] = useState("");
-
+  const [heroText, setHeroText] = useState("Marvel Heroes");
   useEffect(() => {
     console.log("UseEffect", heroDetails);
   }, [heroDetails]);
@@ -34,11 +34,22 @@ function CharacterSearch(props) {
       {Object.keys(heroDetails).length === 0 ? null : (
         <CharacterCard heroDetails={heroDetails} />
       )}
-      <Dropdown text="Marvel Heroes">
-        {Object.keys(heroDetails).length === 0 ? null : (
+      <Dropdown selection text={heroText}>
+        {Object.keys(heroes).length === 0 ? null : (
           <Dropdown.Menu>
-            <Dropdown.Item text={heroDetails[0].name} />
-            <Dropdown.Item text="aloha" />
+            {heroes.map((hero) => {
+              return (
+                <Dropdown.Item
+                  onClick={() => {
+                    setHeroText(hero.name);
+                  }}
+                  id={hero.id}
+                  value={hero.name}
+                >
+                  {hero.name}
+                </Dropdown.Item>
+              );
+            })}
           </Dropdown.Menu>
         )}
       </Dropdown>
