@@ -33,8 +33,10 @@ function CharacterSearch(props) {
       {Object.keys(heroDetails).length === 0 ? null : (
         <CharacterCard heroDetails={heroDetails} />
       )}
-      <Dropdown selection text={heroText}>
-        {Object.keys(heroes).length === 0 ? null : (
+      {Object.keys(heroes).length === 0 ? (
+        <Dropdown loading text={heroText} value={heroText} />
+      ) : (
+        <Dropdown text={heroText} value={heroText}>
           <Dropdown.Menu>
             {heroes.map((hero) => {
               return (
@@ -50,8 +52,8 @@ function CharacterSearch(props) {
               );
             })}
           </Dropdown.Menu>
-        )}
-      </Dropdown>
+        </Dropdown>
+      )}
     </div>
   );
 }
