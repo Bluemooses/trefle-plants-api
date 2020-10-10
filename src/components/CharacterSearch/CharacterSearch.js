@@ -10,6 +10,9 @@ function CharacterSearch(props) {
   const heroes = useSelector((state) => state.allHeroes);
   const [superHero, setSuperHero] = useState("");
   const [heroText, setHeroText] = useState("Marvel Heroes");
+  const [search, setSearch] = useState(false);
+
+  // Lifecycle management, log heroDetails each time the reducer is updated
   useEffect(() => {
     console.log("UseEffect", heroDetails);
   }, [heroDetails]);
@@ -17,6 +20,7 @@ function CharacterSearch(props) {
     console.log("dumb");
   }, [heroes]);
 
+  // DISPATCH ACTIONS
   const getSuperHero = () => {
     dispatch({ type: "GET_MARVEL_HERO", payload: superHero });
     dispatch({ type: "NEW_HERO_SEARCHED" });
@@ -30,25 +34,33 @@ function CharacterSearch(props) {
       />
       <Button onClick={getSuperHero}>Get Marvel Hero</Button>
 
+      {/* No hero ? show nothing or show a CharacterCard with the heroDetails passed through props */}
       {Object.keys(heroDetails).length === 0 ? null : (
         <CharacterCard heroDetails={heroDetails} />
       )}
+
+      {/* Render loading Dropdown menu or a loaded Menu with top 20 hero names */}
       {Object.keys(heroes).length === 0 ? (
         <Dropdown loading text={heroText} value={heroText} />
       ) : (
-        <Dropdown text={heroText} value={heroText}>
+        <Dropdown selection text={heroText}>
           <Dropdown.Menu>
+            <Dropdown.Item>
+              <Input placeholder="Search heroes"></Input>
+            </Dropdown.Item>
             {heroes.map((hero) => {
               return (
-                <Dropdown.Item
-                  onClick={() => {
-                    setHeroText(hero.name);
-                  }}
-                  id={hero.id}
-                  value={hero.name}
-                >
-                  {hero.name}
-                </Dropdown.Item>
+                <>
+                  <Dropdown.Item
+                    onClick={() => {
+                      setHeroText(hero.name);
+                    }}
+                    id={hero.id}
+                    value={hero.name}
+                  >
+                    {hero.name}
+                  </Dropdown.Item>
+                </>
               );
             })}
           </Dropdown.Menu>

@@ -8,7 +8,7 @@ function App() {
 
   useEffect(() => {
     dispatch({ type: "GET_HEROES" });
-  }, []);
+  });
 
   return (
     <div className="App">

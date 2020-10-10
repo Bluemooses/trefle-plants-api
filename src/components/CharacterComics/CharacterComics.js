@@ -15,8 +15,12 @@ function CharacterComics(props) {
               const imageSrc = `${comic.thumbnail.path}/portrait_xlarge.${comic.thumbnail.extension}`;
               return (
                 <Card key={comic.id}>
-                  <Card.Header>{comic.title}</Card.Header>
-                  <Image src={imageSrc} alt={comic.title}></Image>
+                  <Card.Content>
+                    <Card.Header>{comic.title}</Card.Header>
+                  </Card.Content>
+                  <Card.Content>
+                    <Image src={imageSrc} alt={comic.title}></Image>
+                  </Card.Content>
                 </Card>
               );
             })}
