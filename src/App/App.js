@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "../components/Home/Home";
 import CurrentPlantPage from "../components/CurrentPlantPage/CurrentPlantPage";
+import PlantSearch from "../components/PlantSearch/PlantSearch";
 function App() {
   const dispatch = useDispatch();
 
@@ -19,10 +20,11 @@ function App() {
         <Router>
           <Switch>
             <Route path="/">
-              <CurrentPlantPage />
+              <PlantSearch />
             </Route>
             <Route path="/home">
               <Home />
+              <CurrentPlantPage />
             </Route>
           </Switch>
         </Router>

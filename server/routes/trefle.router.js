@@ -65,7 +65,7 @@ router.get(`/plants/search/:search`, (req, res) => {
   console.log(req.params.search);
   const searchQuery = req.params.search;
   console.log("this is a search");
-  const url = `'https://trefle.io/api/v1/plants?token=${process.env.REACT_APP_TREFLE_API_KEY}&filter[common_name]=${searchQuery}`;
+  const url = `https://trefle.io/api/v1/plants/search?token=${process.env.REACT_APP_TREFLE_API_KEY}&q=${searchQuery}`;
   axios
     .get(url)
     .then((response) => {
