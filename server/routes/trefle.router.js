@@ -61,6 +61,22 @@ const hash = md5(ts + privateKey + publicKey);
 //     .catch((err) => console.log(err));
 // });
 
+router.get(`/plants/search/:search`, (req, res) => {
+  console.log(req.params.search);
+  const searchQuery = req.params.search;
+  console.log("this is a search");
+  const url = `'https://trefle.io/api/v1/plants?token=${process.env.REACT_APP_TREFLE_API_KEY}&filter[common_name]=${searchQuery}`;
+  axios
+    .get(url)
+    .then((response) => {
+      console.log(response.data);
+      res.send(response.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 router.get(`/plants`, (req, res) => {
   console.log("this is page 1");
   const url = `https://trefle.io/api/v1/plants?token=${process.env.REACT_APP_TREFLE_API_KEY}`;
