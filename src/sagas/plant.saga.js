@@ -21,7 +21,7 @@ function* getPlantByName(action) {
   try {
     const response = yield axios.get(`/api/trefle/plants/search/${search}`);
     const payload = response.data;
-    yield put({ type: "SET_CURRENT_PLANT_SEARCHED", payload });
+    yield put({ type: "SET_CURRENT_PLANT_SEARCH_RESULTS", payload });
   } catch (error) {
     console.log(error);
   }
