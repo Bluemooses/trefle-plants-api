@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Card, Image, Button } from "semantic-ui-react";
-import axios from "axios";
-import md5 from "md5";
+
 import { useDispatch } from "react-redux";
 
 function CharacterCard(props) {

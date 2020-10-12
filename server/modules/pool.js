@@ -30,7 +30,7 @@ if (process.env.DATABASE_URL) {
   config = {
     host: "localhost", // Server hosting the postgres database
     port: 5432, // env var: PGPORT
-    database: "apis",
+    database: "oysters",
     max: 10,
     idleTimeoutMillis: 30000,
     user: "postgres",
