@@ -1,0 +1,27 @@
+.plantCard {
+  border: 2px solid black;
+  border-radius: 17px;
+  flex-grow: 0;
+  align-self: flex-start;
+  padding: 1%;
+  margin: 0.7%;
+}
+
+.plantCard:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.plantContainer {
+  display: flex;
+  flex-flow: wrap;
+  /* flex-direction: column-reverse; */
+  align-content: space-between;
+}
+
+.plantImage {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  padding: 2%;
+}
+
+
