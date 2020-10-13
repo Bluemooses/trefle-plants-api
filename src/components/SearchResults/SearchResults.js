@@ -5,6 +5,14 @@ import "../CurrentPlantPage/CurrentPlantPage.css";
 function SearchResults(props) {
   const plants = useSelector((state) => state.searchResults);
   const plantData = plants.data;
+  const styles = {
+    getPlantButton: {
+      "background-color": "red",
+    },
+  };
+  const getPlantDetails = (plant) => {
+    console.log(plant);
+  };
   return (
     <div>
       {plantData ? (
@@ -19,6 +27,12 @@ function SearchResults(props) {
                   <p>Scientific Name: {plant.scientific_name}</p>
                 )}
                 {!plant.common_name && <h4>{plant.scientific_name}</h4>}
+                <button
+                  style={styles.getPlantButton}
+                  onClick={() => getPlantDetails(plant)}
+                >
+                  Plant Details
+                </button>
               </div>
             );
           })}

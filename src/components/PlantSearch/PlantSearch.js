@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import PlantButton from "../../styles/buttons/getPlantButton";
 import SearchResults from "../SearchResults/SearchResults";
 
 function PlantSearch(props) {
@@ -19,7 +20,7 @@ function PlantSearch(props) {
             setSearchQuery(e.target.value);
           }}
         ></input>
-        <button onClick={searchPlant}>Search</button>
+        <PlantButton onClick={searchPlant}>Search</PlantButton>
       </div>
       <div>{searchActive ? <SearchResults /> : null}</div>
     </div>
