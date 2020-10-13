@@ -1,9 +1,37 @@
 @import "../_sass/palette/palette";
 
 .getPlants {
-  background-color: $primary;
-}
-
-.getPlants:hover {
-  background-color: $secondary;
+  background-color: $accent;
+  color: $primary;
+  box-shadow: 2px 2px 2px 2px $text;
+  border: 3px solid $primary;
+  border-radius: 13px;
+  text-decoration: underline;
+  width: fit-content;
+  margin: 0.1%;
+  &:hover {
+    background-color: $background;
+    color: white;
+  }
+  &:active {
+    background-color: $aquamarine;
+    border: 3px solid $yellow;
+  }
+  &:after {
+    background: #f1f1f1;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s;
+  }
+  &:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s;
+  }
 }

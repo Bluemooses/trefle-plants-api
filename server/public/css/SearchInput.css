@@ -1,0 +1,17 @@
+.searchInput {
+  background-color: #57fa93;
+  width: 20%;
+  padding: 0.5%;
+  margin: 1%;
+  border: 2px solid white;
+}
+
+.searchInput:active {
+  background-color: #29db47;
+}
+
+.searchInput:focus {
+  outline: 2px solid #eaf58e;
+  background-color: #57d97e;
+}
+/*# sourceMappingURL=SearchInput.css.map */

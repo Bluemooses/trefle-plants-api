@@ -1,8 +1,45 @@
 .getPlants {
-  background-color: #29db47;
+  background-color: #57fa93;
+  color: #29db47;
+  -webkit-box-shadow: 2px 2px 2px 2px #6cf08b;
+          box-shadow: 2px 2px 2px 2px #6cf08b;
+  border: 3px solid #29db47;
+  border-radius: 13px;
+  text-decoration: underline;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0.1%;
 }
 
 .getPlants:hover {
-  background-color: #65fc74;
+  background-color: #57d97e;
+  color: white;
+}
+
+.getPlants:active {
+  background-color: #49f5d0;
+  border: 3px solid #eaf58e;
+}
+
+.getPlants:after {
+  background: #f1f1f1;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+}
+
+.getPlants:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  -webkit-transition: 0s;
+  transition: 0s;
 }
 /*# sourceMappingURL=getPlantButton.css.map */
