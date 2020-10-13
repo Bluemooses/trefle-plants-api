@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,UAAU,CAAC;EACT,gBAAgB,ECHR,OAAO;CDIhB;;AAED,AAAA,UAAU,AAAA,MAAM,CAAC;EACf,gBAAgB,ECNN,OAAO;CDOlB",
+    "sources": [
+        "../../../src/styles/buttons/getPlantButton.scss",
+        "../../../src/styles/_sass/palette/_palette.scss"
+    ],
+    "names": [],
+    "file": "getPlantButton.css"
+}

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./App.css";
+import "./App.scss";
 import CharacterSearch from "../components/CharacterSearch/CharacterSearch";
 import CharacterComics from "../components/CharacterComics/CharacterComics";
 import { useDispatch } from "react-redux";

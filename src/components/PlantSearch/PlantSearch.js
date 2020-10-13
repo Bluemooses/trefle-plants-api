@@ -20,7 +20,7 @@ function PlantSearch(props) {
             setSearchQuery(e.target.value);
           }}
         ></input>
-        <PlantButton onClick={searchPlant}>Search</PlantButton>
+        <PlantButton text={"Search"} onClick={searchPlant}></PlantButton>
       </div>
       <div>{searchActive ? <SearchResults /> : null}</div>
     </div>
