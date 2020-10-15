@@ -17,37 +17,39 @@ function SearchResults(props) {
   };
   return (
     <div>
-      {plantData ? (
-        <div className="container">
-          {plantData.map((plant) => {
-            return (
-              <div className="plantDataDiv">
-                <img className="plantImage" src={plant.image_url} alt="" />
+      <div>
+        {plantData ? (
+          <div className="container">
+            {plantData.map((plant) => {
+              return (
+                <div className="plantDataDiv">
+                  <img className="plantImage" src={plant.image_url} alt="" />
 
-                {plant.common_name && <h4>{plant.common_name}</h4>}
-                {plant.common_name && (
-                  <p>Scientific Name: {plant.scientific_name}</p>
-                )}
-                {!plant.common_name && <h4>{plant.scientific_name}</h4>}
-                <div className="center">
-                  <PlantButton
-                    className="getPlants"
-                    function={() => getPlantDetails(plant)}
-                    style={styles.getPlantButton}
-                    onClick={() => getPlantDetails(plant)}
-                    text="Plant Details"
-                  ></PlantButton>
+                  {plant.common_name && <h4>{plant.common_name}</h4>}
+                  {plant.common_name && (
+                    <p>Scientific Name: {plant.scientific_name}</p>
+                  )}
+                  {!plant.common_name && <h4>{plant.scientific_name}</h4>}
+                  <div className="center">
+                    <PlantButton
+                      className="getPlants"
+                      function={() => getPlantDetails(plant)}
+                      style={styles.getPlantButton}
+                      onClick={() => getPlantDetails(plant)}
+                      text="Plant Details"
+                    ></PlantButton>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
-          <Pagination />
-        </div>
-      ) : (
-        <div>
-          <p>Loading...</p>
-        </div>
-      )}
+              );
+            })}
+            <Pagination />
+          </div>
+        ) : (
+          <div>
+            <p>Loading...</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
