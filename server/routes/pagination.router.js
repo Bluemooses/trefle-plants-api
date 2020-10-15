@@ -7,26 +7,20 @@ const trefleApiKey = process.env.REACT_APP_TREFLE_API_KEY;
  * GET route template
  */
 router.get(`/`, (req, res) => {
-  try {
-    const queryUrl = req.query.rawUrl;
-    // url.searchParams.get()
+  const queryUrl = req.query.rawUrl;
+  // url.searchParams.get()
 
-    const url = `https://trefle.io${queryUrl}&token=${process.env.REACT_APP_TREFLE_API_KEY}`;
+  const url = `https://trefle.io${queryUrl}&token=${process.env.REACT_APP_TREFLE_API_KEY}`;
 
-    axios
-      .get(url)
-      .then((response) => {
-        // console.log(response.data);
-        res.send(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    console.log(req.query.rawUrl);
-  } catch (error) {
-    res.sendStatus(500);
-    console.log(error);
-  }
+  axios
+    .get(url)
+    .then((response) => {
+      // console.log(response.data);
+      res.send(response.data);
+    })
+    .catch((error) => {
+      res.sendStatus(500);
+    });
 });
 
 /**
