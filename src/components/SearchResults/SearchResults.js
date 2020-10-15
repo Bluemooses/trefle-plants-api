@@ -1,35 +1,41 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import GetPlantButton from "../../styles/buttons/getPlantButton";
 import "../CurrentPlantPage/CurrentPlantPage.css";
-
+import "../SearchResults/SearchResults.scss";
+import PlantButton from "../../styles/buttons/getPlantButton";
 function SearchResults(props) {
   const plants = useSelector((state) => state.searchResults);
   const plantData = plants.data;
-
+  const styles = {
+    getPlantButton: {
+      "background-color": "red",
+    },
+  };
   const getPlantDetails = (plant) => {
     console.log(plant);
   };
   return (
-    <div className="">
+    <div>
       {plantData ? (
-        <div className="plantCard">
+        <div className="container">
           {plantData.map((plant) => {
             return (
-              <div>
+              <div className="plantDataDiv">
                 <img className="plantImage" src={plant.image_url} alt="" />
 
-                <div className="plantContainer">
-                  {plant.common_name && <h4>{plant.common_name}</h4>}
-                  {plant.common_name && (
-                    <p>Scientific Name: {plant.scientific_name}</p>
-                  )}
-                  {!plant.common_name && <h4>{plant.scientific_name}</h4>}
-                  <GetPlantButton
-                    text={"Plant Details"}
-                    function={getPlantDetails}
+                {plant.common_name && <h4>{plant.common_name}</h4>}
+                {plant.common_name && (
+                  <p>Scientific Name: {plant.scientific_name}</p>
+                )}
+                {!plant.common_name && <h4>{plant.scientific_name}</h4>}
+                <div className="center">
+                  <PlantButton
                     className="getPlants"
-                  ></GetPlantButton>
+                    function={() => getPlantDetails(plant)}
+                    style={styles.getPlantButton}
+                    onClick={() => getPlantDetails(plant)}
+                    text="Plant Details"
+                  ></PlantButton>
                 </div>
               </div>
             );

@@ -1,9 +1,6 @@
 .plantCard {
   border: 2px solid black;
-  border-radius: 17px;
-  -webkit-box-flex: 0;
-      -ms-flex-positive: 0;
-          flex-grow: 0;
+  border-radius: 44px;
   -ms-flex-item-align: start;
       align-self: flex-start;
   padding: 1%;
@@ -32,5 +29,31 @@
   -o-object-fit: cover;
      object-fit: cover;
   padding: 2%;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+  /* flex-direction: column-reverse; */
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+  text-align: center;
+}
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.center {
+  display: block;
+  max-width: 300px;
+  margin: auto;
 }
 /*# sourceMappingURL=SearchResults.css.map */

@@ -1,7 +1,9 @@
 .plantCard {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-  border-radius: 5px;
+  border: 2px solid black;
+  border-radius: 44px;
+  align-self: flex-start;
+  padding: 1%;
+  margin: 0.7%;
 }
 
 .plantCard:hover {
@@ -15,17 +17,30 @@
 }
 
 .plantImage {
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   object-fit: cover;
-  padding: 0.2%;
+  padding: 2%;
 }
 
-.plantDataDiv {
-  border: 2px solid black;
-  border-radius: 17px;
-  flex-grow: 0;
-  align-self: flex-start;
-  padding: 1%;
-  margin: 0.7%;
+.container {
+  display: flex;
+  flex-flow: wrap;
+  /* flex-direction: column-reverse; */
+  align-content: space-between;
+  text-align: center;
+}
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.center {
+  display: block;
+  max-width: 300px;
+  margin: auto;
 }
