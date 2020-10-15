@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import "../CurrentPlantPage/CurrentPlantPage.css";
 import "../SearchResults/SearchResults.scss";
 import PlantButton from "../../styles/buttons/getPlantButton";
+import Pagination from "../Pagination/Pagination";
 function SearchResults(props) {
   const plants = useSelector((state) => state.searchResults);
   const plantData = plants.data;
@@ -40,6 +41,7 @@ function SearchResults(props) {
               </div>
             );
           })}
+          <Pagination />
         </div>
       ) : (
         <div>
