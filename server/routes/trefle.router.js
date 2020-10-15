@@ -2,13 +2,13 @@ const axios = require("axios");
 const express = require("express");
 const pool = require("../modules/pool");
 const router = express.Router();
-const md5 = require("md5");
+// const md5 = require("md5");
 
-const publicKey = process.env.REACT_APP_MARVEL_PUBLIC_KEY;
-const privateKey = process.env.REACT_APP_MARVEL_PRIVATE_KEY;
+// const publicKey = process.env.REACT_APP_MARVEL_PUBLIC_KEY;
+// const privateKey = process.env.REACT_APP_MARVEL_PRIVATE_KEY;
 
-const ts = Date.now();
-const hash = md5(ts + privateKey + publicKey);
+// const ts = Date.now();
+// const hash = md5(ts + privateKey + publicKey);
 
 /**
  * This handles searching the initial hero
@@ -82,7 +82,6 @@ router.get(`/plants/search/:search`, (req, res) => {
 });
 
 router.get(`/plants`, (req, res) => {
-  console.log("this is page 1");
   const url = `https://trefle.io/api/v1/plants?token=${process.env.REACT_APP_TREFLE_API_KEY}`;
   axios
     .get(url)
@@ -93,6 +92,19 @@ router.get(`/plants`, (req, res) => {
     .catch((err) => console.log(err));
 });
 
+router.get(`/plants/page/:url`, (req, res) => {
+  const link = req.params.url;
+  const link2 = req.params.url.url;
+  console.log("this is page 1 using link", link, link2);
+
+  console.log(req.body);
+  axios
+    .get(link)
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch((err) => console.log(err));
+});
 /**
  * POST route template
  */

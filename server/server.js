@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 //Routes included
 const callingRouter = require("./routes/calling.router");
 const trefleRouter = require("./routes/trefle.router");
+const paginationRouter = require("./routes/pagination.router");
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -17,6 +18,7 @@ app.use(cors());
 //Routes
 app.use("/api/calling", callingRouter);
 app.use("/api/trefle", trefleRouter);
+app.use("/api/pages", paginationRouter);
 
 // Serve static files
 app.use(express.static("build"));
