@@ -15,16 +15,17 @@ function Pagination(props) {
   let parsedQs = querystring.parse(parsedUrl.query);
   let numberOfPages = [];
   const pageValue = parsedQs.page;
+
+  useEffect(() => {
+    setNumberOfPages();
+  }, [pages.last]);
+
   function setNumberOfPages() {
     for (let i = 1; i <= pageValue; i++) {
       numberOfPages.push({ i: i });
       setPageNumbers(numberOfPages);
     }
   }
-  useEffect(() => {
-    setNumberOfPages();
-  }, [pages]);
-
   function goToDirectPage(page) {
     const pageIndex = page.i;
     const urlPayload = `/api/v1/plants/search?page=${pageIndex}&q=${parsedQs.q}`;

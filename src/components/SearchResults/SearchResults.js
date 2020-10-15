@@ -6,6 +6,7 @@ import PlantButton from "../../styles/buttons/getPlantButton";
 import Pagination from "../Pagination/Pagination";
 function SearchResults(props) {
   const plants = useSelector((state) => state.searchResults);
+
   const plantData = plants.data;
   const styles = {
     getPlantButton: {

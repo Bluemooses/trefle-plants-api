@@ -3,7 +3,7 @@
   border-radius: 44px;
   align-self: flex-start;
   padding: 1%;
-  margin: 0.7%;
+  margin: auto;
 }
 
 .plantCard:hover {
@@ -13,7 +13,6 @@
   display: flex;
   flex-flow: wrap;
   /* flex-direction: column-reverse; */
-  align-content: space-between;
 }
 
 .plantImage {
@@ -22,13 +21,17 @@
   object-fit: cover;
   padding: 2%;
 }
+.plantDataDiv {
+  margin: auto;
+  margin-top: 2%;
+  margin-bottom: 1%;
+}
 
 .container {
   display: flex;
-  flex-flow: wrap;
   /* flex-direction: column-reverse; */
-  align-content: space-between;
   text-align: center;
+  margin: auto;
 }
 
 .vertical-center {
