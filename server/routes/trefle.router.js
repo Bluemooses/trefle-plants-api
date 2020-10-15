@@ -66,10 +66,14 @@ router.get(`/plants/search/:search`, (req, res) => {
   const searchQuery = req.params.search;
   console.log("this is a search");
   const url = `https://trefle.io/api/v1/plants/search?token=${process.env.REACT_APP_TREFLE_API_KEY}&q=${searchQuery}`;
+  //axios is promise based
+
+  //
+
   axios
     .get(url)
     .then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       res.send(response.data);
     })
     .catch((err) => {
