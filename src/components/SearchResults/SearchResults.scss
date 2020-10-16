@@ -30,7 +30,7 @@
   align-self: flex-start;
   padding: 1%;
   margin: 0.7%;
-  height: 5%;
+
   background-color: $light-green;
 }
 
@@ -39,20 +39,5 @@
   /* flex-direction: column-reverse; */
   justify-content: center;
   text-align: center;
-  margin: auto;
-  height: 5%;
-}
-
-.vertical-center {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-.center {
-  display: block;
-  max-width: 300px;
   margin: auto;
 }

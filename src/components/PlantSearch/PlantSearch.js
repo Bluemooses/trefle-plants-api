@@ -8,12 +8,11 @@ function PlantSearch(props) {
   const dispatch = useDispatch();
   const searchResults = useSelector((state) => state.searchResults);
   const [searchQuery, setSearchQuery] = useState(" ");
-  const [searchActive, setSearchActive] = useState(false);
+
   const searchPlant = () => {
     console.log("click");
     dispatch({ type: "NEW_SEARCH_PARAMS" });
     dispatch({ type: "SEARCH_PLANT_BY_COMMON_NAME", payload: searchQuery });
-    setSearchActive(true);
   };
   return (
     <div>

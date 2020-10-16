@@ -13,7 +13,7 @@ function SearchResults(props) {
 
   const getPlantDetails = (plant) => {
     console.log(plant);
-    dispatch({});
+    dispatch({ type: "GET_PLANT_DETAILS", payload: plant });
   };
   return (
     <div>

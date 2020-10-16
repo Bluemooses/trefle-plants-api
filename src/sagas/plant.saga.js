@@ -33,7 +33,7 @@ function* getPlantByName(action) {
 
 function* getPage(action) {
   try {
-    let rawUrl = action.payload;
+    const rawUrl = action.payload;
     console.log(action.payload);
     const response = yield axios.get(`/api/pages`, {
       params: { rawUrl: rawUrl },
@@ -46,10 +46,25 @@ function* getPage(action) {
   }
 }
 
+function* getPlantDetails(action) {
+  console.log(action.payload);
+  const rawUrl = action.payload.links.self;
+  try {
+    const response = yield axios.get(`/api/plant-details`, {
+      params: { rawUrl: rawUrl },
+    });
+    const payload = response.data;
+    yield put({ type: "SET_PLANT_DETAILS", payload });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 function* plantSaga() {
   yield takeLatest("GET_PLANTS", getPlants);
   yield takeLatest("SEARCH_PLANT_BY_COMMON_NAME", getPlantByName);
   yield takeLatest("GET_NEXT_SEARCH_PAGE", getPage);
+  yield takeLatest("GET_PLANT_DETAILS", getPlantDetails);
 }
 
 export default plantSaga;

@@ -39,7 +39,6 @@
       align-self: flex-start;
   padding: 1%;
   margin: 0.7%;
-  height: 5%;
   background-color: #89e08b;
 }
 
@@ -52,21 +51,6 @@
       -ms-flex-pack: center;
           justify-content: center;
   text-align: center;
-  margin: auto;
-  height: 5%;
-}
-
-.vertical-center {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-}
-
-.center {
-  display: block;
-  max-width: 300px;
   margin: auto;
 }
 /*# sourceMappingURL=SearchResults.css.map */
