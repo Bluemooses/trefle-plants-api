@@ -1,13 +1,9 @@
 .paginationControl {
   text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  position: absolute;
+  top: 98%;
   margin: auto;
-}
-
-.paginationControl {
-  display: inline-block;
+  float: bottom;
 }
 
 .paginationButton {

@@ -6,6 +6,7 @@ const router = express.Router();
  */
 router.get(`/`, (req, res) => {
   const queryUrl = req.query.rawUrl;
+  console.log(queryUrl);
   // url.searchParams.get()
 
   const url = `https://trefle.io${queryUrl}&token=${process.env.REACT_APP_TREFLE_API_KEY}`;
