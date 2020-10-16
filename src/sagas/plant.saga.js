@@ -19,6 +19,7 @@ function* getPlants() {
   }
 }
 
+// search functions
 function* getPlantByName(action) {
   const search = action.payload;
   try {
@@ -30,6 +31,18 @@ function* getPlantByName(action) {
   }
 }
 
+function* getEdiblePlants(action) {
+  const search = action.payload;
+  try {
+    const response = yield axios.get(`/api/trefle/edible-plants/${search}`);
+    const payload = response.data;
+    yield put({ type: "SET_CURRENT_PLANT_SEARCH_RESULTS", payload });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+//Pagination handler
 function* getPage(action) {
   try {
     const rawUrl = action.payload;
@@ -45,6 +58,7 @@ function* getPage(action) {
   }
 }
 
+//Gets a specific plant by passing a url as params
 function* getPlantDetails(action) {
   console.log(action.payload);
   const rawUrl = action.payload.links.self;
@@ -64,6 +78,7 @@ function* plantSaga() {
   yield takeLatest("SEARCH_PLANT_BY_COMMON_NAME", getPlantByName);
   yield takeLatest("GET_NEXT_SEARCH_PAGE", getPage);
   yield takeLatest("GET_PLANT_DETAILS", getPlantDetails);
+  yield takeLatest("SEARCH_EDIBLE_PLANTS", getEdiblePlants);
 }
 
 export default plantSaga;

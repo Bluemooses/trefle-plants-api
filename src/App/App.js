@@ -6,6 +6,9 @@ import CurrentPlantPage from "../components/CurrentPlantPage/CurrentPlantPage";
 import PlantSearch from "../components/PlantSearch/PlantSearch";
 //Package Imports
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import EdiblePlantSearch from "../components/EdiblePlantSearch/EdiblePlantSearch";
+import Nav from "../components/Nav/Nav";
+
 // *
 // Artifacts
 // import CharacterSearch from "../components/CharacterSearch/CharacterSearch";
@@ -13,24 +16,22 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Router>
-          <Switch>
-            <Route path="/">
-              <Home />
-            </Route>
-            <Route path="/home">
-              <Home />
-              <CurrentPlantPage />
-            </Route>
-          </Switch>
-        </Router>
+    <Router>
+      <div className="App">
+        <Nav />
+        <Switch>
+          <Route path="/edible-plants">
+            <EdiblePlantSearch />
+          </Route>
+          <Route path="/all-plants">
+            <PlantSearch />
+          </Route>
+        </Switch>
 
         {/* <CharacterSearch />
         <CharacterComics /> */}
-      </header>
-    </div>
+      </div>
+    </Router>
   );
 }
 
