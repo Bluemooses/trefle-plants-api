@@ -23,7 +23,7 @@ router.get(`/plants/search/:search`, (req, res) => {
 
 router.get(`/edible-plants/:search`, (req, res) => {
   const searchQuery = req.params.search;
-  const url = `https://trefle.io/api/v1/plants/search?token=${process.env.REACT_APP_TREFLE_API_KEY}&filter_not[edible]=null&q=${searchQuery}`;
+  const url = `https://trefle.io/api/v1/plants/search?token=${process.env.REACT_APP_TREFLE_API_KEY}&filter[edible]=true&q=${searchQuery}`;
 
   axios
     .get(url)
