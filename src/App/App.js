@@ -18,7 +18,7 @@ function App() {
         <Router>
           <Switch>
             <Route path="/">
-              <PlantSearch />
+              <Home />
             </Route>
             <Route path="/home">
               <Home />

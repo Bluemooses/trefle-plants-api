@@ -26,6 +26,7 @@ function Pagination(props) {
       setPageNumbers(numberOfPages);
     }
   }
+
   function goToDirectPage(page) {
     const pageIndex = page.i;
     const urlPayload = `/api/v1/plants/search?page=${pageIndex}&q=${parsedQs.q}`;
