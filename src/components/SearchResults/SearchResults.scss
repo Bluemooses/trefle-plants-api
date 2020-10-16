@@ -1,3 +1,5 @@
+@import "../../styles/_sass/palette/palette";
+
 .plantCard {
   border: 2px solid black;
   border-radius: 44px;
@@ -22,9 +24,14 @@
   padding: 2%;
 }
 .plantDataDiv {
-  margin: auto;
-  margin-top: 2%;
-  margin-bottom: 1%;
+  border: 2px solid black;
+  border-radius: 17px;
+  flex-grow: 0;
+  align-self: flex-start;
+  padding: 1%;
+  margin: 0.7%;
+  height: 5%;
+  background-color: $light-green;
 }
 
 .container {
@@ -32,6 +39,7 @@
   /* flex-direction: column-reverse; */
   text-align: center;
   margin: auto;
+  height: 5%;
 }
 
 .vertical-center {

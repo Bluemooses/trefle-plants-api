@@ -3,7 +3,6 @@
 .getPlants {
   background-color: $accent;
   color: $primary;
-  box-shadow: 2px 2px 2px 2px $text;
   border: 3px solid $primary;
   border-radius: 13px;
   text-decoration: underline;
@@ -15,23 +14,22 @@
   }
   &:active {
     background-color: $aquamarine;
-    border: 3px solid $yellow;
   }
-  &:after {
-    background: #f1f1f1;
-    display: block;
-    position: absolute;
-    padding-top: 300%;
-    padding-left: 350%;
-    margin-left: -20px !important;
-    margin-top: -120%;
-    opacity: 0;
-    transition: all 0.8s;
+}
+
+.getPlantDetails {
+  background-color: $bright-blue;
+  color: white;
+
+  border-radius: 13px;
+  text-decoration: wavy;
+  width: fit-content;
+  margin: 0.2%;
+  &:hover {
+    background-color: $powder-blue;
+    color: white;
   }
-  &:active:after {
-    padding: 0;
-    margin: 0;
-    opacity: 1;
-    transition: 0s;
+  &:active {
+    background-color: $light-green;
   }
 }
