@@ -1,0 +1,19 @@
+.navBar a {
+  background-color: #57fa93;
+  padding: 0.05%;
+  margin: 0.3%;
+  border: 5px outset #65fc74;
+  color: #a0621c;
+}
+
+.navBar a:hover {
+  color: white;
+  background-color: #65fc74;
+  border: 5px outset #57fa93;
+}
+
+.navBar {
+  text-align: justify;
+  margin-top: 0.5%;
+}
+/*# sourceMappingURL=Nav.css.map */

@@ -4,6 +4,8 @@ const currentSearchPlantsReducer = (state = [], action) => {
       return action.payload;
     case "NEW_SEARCH_PARAMS":
       return (state = []);
+    case "RESET_SEARCH_PAGE":
+      return (state = []);
     default:
       return state;
   }

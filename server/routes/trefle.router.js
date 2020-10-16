@@ -38,10 +38,6 @@ router.get(`/edible-plants/:search`, (req, res) => {
 
 router.get(`/plants/page/:url`, (req, res) => {
   const link = req.params.url;
-  const link2 = req.params.url.url;
-  console.log("this is page 1 using link", link, link2);
-
-  console.log(req.body);
   axios
     .get(link)
     .then((response) => {

@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AACA,AAAA,OAAO,CAAC,CAAC,CAAC;EACR,gBAAgB,ECET,OAAO;EDDd,OAAO,EAAE,KAAK;EACd,MAAM,EAAE,IAAI;EACZ,MAAM,EAAE,GAAG,CAAC,MAAM,CCJR,OAAO;EDKjB,KAAK,ECDM,OAAgB;CDO5B;;AAXD,AAME,OANK,CAAC,CAAC,AAMN,MAAM,CAAC;EACN,KAAK,EAAE,KAAK;EACZ,gBAAgB,ECRR,OAAO;EDSf,MAAM,EAAE,GAAG,CAAC,MAAM,CCNb,OAAO;CDOb;;AAEH,AAAA,OAAO,CAAC;EACN,UAAU,EAAE,OAAO;EACnB,UAAU,EAAE,IAAI;CACjB",
+    "sources": [
+        "../../../src/components/Nav/Nav.scss",
+        "../../../src/styles/_sass/palette/_palette.scss"
+    ],
+    "names": [],
+    "file": "Nav.css"
+}

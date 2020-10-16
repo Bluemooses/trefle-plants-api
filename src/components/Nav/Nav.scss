@@ -1,0 +1,17 @@
+@import "../../styles/_sass/palette/palette";
+.navBar a {
+  background-color: $accent;
+  padding: 0.05%;
+  margin: 0.3%;
+  border: 5px outset $secondary;
+  color: $brown-text;
+  &:hover {
+    color: white;
+    background-color: $secondary;
+    border: 5px outset $accent;
+  }
+}
+.navBar {
+  text-align: justify;
+  margin-top: 0.5%;
+}
