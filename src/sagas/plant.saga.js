@@ -1,6 +1,5 @@
 import { put, takeLatest } from "redux-saga/effects";
 import axios from "axios";
-import { act } from "react-dom/test-utils";
 
 //CONSTANTS
 const config = {

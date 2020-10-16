@@ -8,6 +8,7 @@ const bodyParser = require("body-parser");
 const callingRouter = require("./routes/calling.router");
 const trefleRouter = require("./routes/trefle.router");
 const paginationRouter = require("./routes/pagination.router");
+const plantDetailsRouter = require("./routes/plantDetails.router");
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -19,6 +20,7 @@ app.use(cors());
 app.use("/api/calling", callingRouter);
 app.use("/api/trefle", trefleRouter);
 app.use("/api/pages", paginationRouter);
+app.use("/api/plant-details", plantDetailsRouter);
 
 // Serve static files
 app.use(express.static("build"));
