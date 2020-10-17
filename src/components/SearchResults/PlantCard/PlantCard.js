@@ -2,7 +2,6 @@ import React from "react";
 import PlantButton from "../../../styles/buttons/getPlantButton";
 
 function PlantCard(props) {
-  console.log(props);
   const plant = props.plant;
   const getPlantDetails = props.getPlantDetails;
   return (

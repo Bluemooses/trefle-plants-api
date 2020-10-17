@@ -2,9 +2,10 @@
 
 .paginationControl {
   text-align: center;
-  position: fixed;
-  bottom: 5px;
+  position: -webkit-sticky;
+  bottom: 10px;
   width: 80%;
+  max-height: 10%;
 }
 
 .paginationButton {

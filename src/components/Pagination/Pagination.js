@@ -32,58 +32,65 @@ function Pagination(props) {
     console.log(parsedQs);
     console.log(parsedUrl);
     if (Object.keys(parsedQs).length > 2) {
-      console.log("edible search");
-      console.log(page);
-
       const urlPayload = `/api/v1/plants/search?page=${pageIndex}&q=${parsedQs.q}&filter[edible]=true`;
       dispatch({ type: "GET_NEXT_SEARCH_PAGE", payload: urlPayload });
     } else {
-      console.log(page);
       console.log("this is hard today");
-      const urlPayload = `/api/v1/plants/search?page=${pageIndex}&q=${parsedQs.q}`;
-      dispatch({ type: "GET_NEXT_SEARCH_PAGE", payload: urlPayload });
+      const urlPayload2 = `/api/v1/plants/search?page=${pageIndex}&q=${parsedQs.q}`;
+      dispatch({ type: "GET_NEXT_SEARCH_PAGE", payload: urlPayload2 });
     }
-    // const urlPayload = ``;
   }
+
+  const handleDropdown = (e) => {
+    console.log(e.target.value);
+    const pageObject = JSON.parse(e.target.value);
+    goToDirectPage(pageObject);
+  };
 
   return (
     <div className="paginationControl">
       {pageNumbers &&
-        pageNumbers.map((page) => {
-          switch (page.i) {
-            case 1:
-              return (
-                <button
-                  className="paginationButton"
-                  value={page.i}
-                  onClick={() => goToDirectPage(page)}
-                  key={page.i}
-                >
-                  First
-                </button>
-              );
-            case Number(parsedQs.page):
-              return (
-                <button
-                  className="paginationButton"
-                  onClick={() => goToDirectPage(page)}
-                  key={page.i}
-                >
-                  Last
-                </button>
-              );
-            default:
-              return (
-                <button
-                  className="paginationButton"
-                  onClick={() => goToDirectPage(page)}
-                  key={page.i}
-                >
-                  Page {page.i}
-                </button>
-              );
-          }
-        })}
+        pageNumbers
+          .filter((page) => page.i === 1)
+          .map((page) => {
+            return (
+              <button
+                className="paginationButton"
+                value={page.i}
+                onClick={() => goToDirectPage(page)}
+                key={page.i}
+              >
+                First
+              </button>
+            );
+          })}
+      {pageNumbers && (
+        <select
+          onChange={(data) => {
+            handleDropdown(data);
+          }}
+        >
+          {pageNumbers.map((page) => {
+            console.log(page);
+            return <option value={JSON.stringify(page)}>{page.i}</option>;
+          })}
+        </select>
+      )}
+
+      {pageNumbers &&
+        pageNumbers
+          .filter((page) => page.i === Number(parsedQs.page) && page.i !== 1)
+          .map((page) => {
+            return (
+              <button
+                className="paginationButton"
+                onClick={() => goToDirectPage(page)}
+                key={page.i}
+              >
+                Last
+              </button>
+            );
+          })}
     </div>
   );
 }
