@@ -8,7 +8,6 @@ function PlantCard(props) {
   return (
     <div className="plantDataDiv">
       <img className="plantImage" src={plant.image_url} alt="" />
-      t.Kollitz13!
       {plant.common_name && <h4>{plant.common_name}</h4>}
       {plant.common_name && <p>Scientific Name: {plant.scientific_name}</p>}
       {!plant.common_name && <h4>{plant.scientific_name}</h4>}
