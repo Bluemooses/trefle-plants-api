@@ -2,6 +2,7 @@ const express = require("express");
 require("dotenv").config();
 const cors = require("cors");
 const app = express();
+const path = require("path");
 const bodyParser = require("body-parser");
 
 //Routes included
@@ -12,6 +13,14 @@ const plantDetailsRouter = require("./routes/plantDetails.router");
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
+app.get("*", (request, response) => {
+  response.sendFile(path.join(__dirname, "client/build", "index.html"));
+});
 
 //cors for connecting to APIs
 app.use(cors());
