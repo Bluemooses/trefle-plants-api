@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import "./EdiblePlantSearch.scss";
+
 import PlantButton from "../../styles/buttons/getPlantButton";
 import SearchResults from "../SearchResults/SearchResults";
 import SearchInput from "../../styles/input/SearchInput/SearchInput";
+
+import { useDispatch, useSelector } from "react-redux";
 
 function EdiblePlantSearch(props) {
   const dispatch = useDispatch();
@@ -15,7 +18,7 @@ function EdiblePlantSearch(props) {
     dispatch({ type: "SEARCH_EDIBLE_PLANTS", payload: searchQuery });
   };
   return (
-    <div>
+    <div className="pageContainer">
       <div>
         <SearchInput
           className="searchInput"
@@ -30,7 +33,7 @@ function EdiblePlantSearch(props) {
           function={searchPlant}
         ></PlantButton>
       </div>
-      {Object.keys(searchResults).length === 0 ? null : <SearchResults />}
+      {searchResults && <SearchResults />}
     </div>
   );
 }

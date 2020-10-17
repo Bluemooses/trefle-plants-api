@@ -13,10 +13,7 @@ function Pagination(props) {
   let parsedUrl = url.parse(rawUrl);
   let parsedQs = querystring.parse(parsedUrl.query);
   let numberOfPages = [];
-  let queryObject = {};
-  let queryArray = [];
-  let evenValues = [];
-  let oddValues = [];
+
   const pageValue = parsedQs.page;
 
   useEffect(() => {
@@ -51,43 +48,42 @@ function Pagination(props) {
 
   return (
     <div className="paginationControl">
-      {pageNumbers !== 0
-        ? pageNumbers.map((page) => {
-            switch (page.i) {
-              case 1:
-                return (
-                  <button
-                    className="paginationButton"
-                    value={page.i}
-                    onClick={() => goToDirectPage(page)}
-                    key={page.i}
-                  >
-                    First
-                  </button>
-                );
-              case Number(parsedQs.page):
-                return (
-                  <button
-                    className="paginationButton"
-                    onClick={() => goToDirectPage(page)}
-                    key={page.i}
-                  >
-                    Last
-                  </button>
-                );
-              default:
-                return (
-                  <button
-                    className="paginationButton"
-                    onClick={() => goToDirectPage(page)}
-                    key={page.i}
-                  >
-                    Page {page.i}
-                  </button>
-                );
-            }
-          })
-        : null}
+      {pageNumbers &&
+        pageNumbers.map((page) => {
+          switch (page.i) {
+            case 1:
+              return (
+                <button
+                  className="paginationButton"
+                  value={page.i}
+                  onClick={() => goToDirectPage(page)}
+                  key={page.i}
+                >
+                  First
+                </button>
+              );
+            case Number(parsedQs.page):
+              return (
+                <button
+                  className="paginationButton"
+                  onClick={() => goToDirectPage(page)}
+                  key={page.i}
+                >
+                  Last
+                </button>
+              );
+            default:
+              return (
+                <button
+                  className="paginationButton"
+                  onClick={() => goToDirectPage(page)}
+                  key={page.i}
+                >
+                  Page {page.i}
+                </button>
+              );
+          }
+        })}
     </div>
   );
 }

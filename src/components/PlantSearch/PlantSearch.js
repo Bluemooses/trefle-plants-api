@@ -30,7 +30,7 @@ function PlantSearch(props) {
           function={searchPlant}
         ></PlantButton>
       </div>
-      {Object.keys(searchResults).length === 0 ? null : <SearchResults />}
+      {searchResults && <SearchResults />}
     </div>
   );
 }

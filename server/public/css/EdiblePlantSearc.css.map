@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../../../src/components/EdiblePlantSearch/EdiblePlantSearc.scss"
+    ],
+    "names": [],
+    "file": "EdiblePlantSearc.css"
+}
