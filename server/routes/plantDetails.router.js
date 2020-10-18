@@ -5,11 +5,11 @@ const router = express.Router();
  * GET route template
  */
 router.get(`/`, (req, res) => {
-  const queryUrl = req.query.rawUrl;
-  console.log(queryUrl);
+  const { rawUrl } = req.query;
+  console.log(rawUrl);
   // url.searchParams.get()
 
-  const url = `https://trefle.io${queryUrl}?token=${process.env.REACT_APP_TREFLE_API_KEY}`;
+  const url = `https://trefle.io${rawUrl}?token=${process.env.REACT_APP_TREFLE_API_KEY}`;
 
   axios
     .get(url)
