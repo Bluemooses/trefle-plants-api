@@ -8,7 +8,6 @@ function SearchResults() {
   //
   const dispatch = useDispatch();
   const plants = useSelector((state) => state.searchResults);
-
   const plantData = plants.data;
 
   const getPlantDetails = (plant) => {
@@ -22,18 +21,25 @@ function SearchResults() {
       {plantData && plantData.length > 5 && <Pagination />}
       {plantData && (
         <div className="container">
-          {plantData
-            //Only display received plant data with image urls
-            .filter((plantFilter) => plantFilter.image_url)
-            .map((plant) => {
-              return (
-                <PlantCard
-                  key={plant.id}
-                  plant={plant}
-                  getPlantDetails={getPlantDetails}
-                />
-              );
-            })}
+          {plantData.filter((plantFilter) => plantFilter.image_url).length ===
+            0 && (
+            <div>
+              <p>No data available..</p>
+            </div>
+          )}
+          {plantData.length > 0 &&
+            plantData
+              //Only display received plant data with image urls
+              .filter((plantFilter) => plantFilter.image_url)
+              .map((plant) => {
+                return (
+                  <PlantCard
+                    key={plant.id}
+                    plant={plant}
+                    getPlantDetails={getPlantDetails}
+                  />
+                );
+              })}
         </div>
       )}
 
