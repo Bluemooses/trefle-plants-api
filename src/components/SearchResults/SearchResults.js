@@ -17,10 +17,13 @@ function SearchResults() {
   };
 
   return (
-    <div>
+    <>
+      {/* If there's more than 5 plant results display pagination on Top and Bottom */}
+      {plantData && plantData.length > 5 && <Pagination />}
       {plantData && (
         <div className="container">
           {plantData
+            //Only display received plant data with image urls
             .filter((plantFilter) => plantFilter.image_url)
             .map((plant) => {
               return (
@@ -31,12 +34,11 @@ function SearchResults() {
                 />
               );
             })}
-          <div>
-            <Pagination />
-          </div>
         </div>
       )}
-    </div>
+
+      {plantData && <Pagination />}
+    </>
   );
 }
 
