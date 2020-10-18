@@ -27,7 +27,6 @@ function Pagination(props) {
     for (let i = 1; i <= pageValue; i++) {
       numberOfPages.push({ i: i });
     }
-    console.log(last);
 
     setPageNumbers(numberOfPages);
   }, []);
@@ -77,7 +76,6 @@ function Pagination(props) {
           }}
         >
           {pageNumbers.map((page) => {
-            console.log(page);
             return (
               <option key={page.i} value={JSON.stringify(page)}>
                 {page.i}
