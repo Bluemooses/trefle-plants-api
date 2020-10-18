@@ -43,7 +43,9 @@ function SearchResults() {
         </div>
       )}
 
-      {plantData && <Pagination />}
+      {plantData &&
+        plantData.filter((plantFilter) => plantFilter.image_url).length !==
+          0 && <Pagination />}
     </>
   );
 }

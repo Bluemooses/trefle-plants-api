@@ -18,15 +18,12 @@ function Pagination(props) {
   let numberOfPages = [];
 
   //setNumberOfPages awaiting numberOfPages, pageValue
-  useEffect(
-    function setNumberOfPages() {
-      for (let i = 1; i <= pageValue; i++) {
-        numberOfPages.push({ i: i });
-      }
-      setPageNumbers(numberOfPages);
-    },
-    [pages.last]
-  );
+  useEffect(function setNumberOfPages() {
+    for (let i = 1; i <= pageValue; i++) {
+      numberOfPages.push({ i: i });
+    }
+    setPageNumbers(numberOfPages);
+  }, []);
 
   //dispatch number value with the current query information to find matching page number
   function goToDirectPage(page) {
