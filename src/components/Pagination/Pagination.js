@@ -6,6 +6,12 @@ import url from "url";
 function Pagination(props) {
   //redux
   const pages = useSelector((state) => state.searchResults.links);
+  const { last } = pages;
+  const lastPageSplitter = last.split(/&q|=/);
+  const lastPageValue = lastPageSplitter[2];
+
+  console.log(lastPageValue);
+
   const dispatch = useDispatch();
   //hooks
   const [pageNumbers, setPageNumbers] = useState(0);
@@ -13,7 +19,6 @@ function Pagination(props) {
   const rawUrl = `https://trefle.io/${pages.last}`;
   const parsedUrl = url.parse(rawUrl);
   const parsedQs = querystring.parse(parsedUrl.query);
-
   const pageValue = parsedQs.page;
   let numberOfPages = [];
 
@@ -22,6 +27,8 @@ function Pagination(props) {
     for (let i = 1; i <= pageValue; i++) {
       numberOfPages.push({ i: i });
     }
+    console.log(last);
+
     setPageNumbers(numberOfPages);
   }, []);
 

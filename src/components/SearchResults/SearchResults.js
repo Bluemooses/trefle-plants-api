@@ -9,7 +9,7 @@ function SearchResults() {
   const dispatch = useDispatch();
   const plants = useSelector((state) => state.searchResults);
   const plantData = plants.data;
-
+  const plantLink = plants.link;
   const getPlantDetails = (plant) => {
     console.log(plant);
     dispatch({ type: "GET_PLANT_DETAILS", payload: plant });
