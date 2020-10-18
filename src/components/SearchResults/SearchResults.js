@@ -24,7 +24,11 @@ function SearchResults() {
             .filter((plantFilter) => plantFilter.image_url)
             .map((plant) => {
               return (
-                <PlantCard plant={plant} getPlantDetails={getPlantDetails} />
+                <PlantCard
+                  key={plant.id}
+                  plant={plant}
+                  getPlantDetails={getPlantDetails}
+                />
               );
             })}
           <Pagination />

@@ -1,11 +1,14 @@
 import React from "react";
 import PlantButton from "../../../styles/buttons/getPlantButton";
+import { useSpring, animated } from "react-spring";
 
 function PlantCard(props) {
   const plant = props.plant;
   const getPlantDetails = props.getPlantDetails;
+  const springProps = useSpring({ opacity: 1, from: { opacity: 0 } });
+
   return (
-    <div className="plantDataDiv">
+    <animated.div style={springProps} className="plantDataDiv">
       <img className="plantImage" src={plant.image_url} alt="" />
       {plant.common_name && <h4>{plant.common_name}</h4>}
       {plant.common_name && <p>Scientific Name: {plant.scientific_name}</p>}
@@ -18,7 +21,7 @@ function PlantCard(props) {
           text="Plant Details"
         ></PlantButton>
       </div>
-    </div>
+    </animated.div>
   );
 }
 

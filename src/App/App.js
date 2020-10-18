@@ -1,16 +1,12 @@
-import React, { useEffect } from "react";
-//Local Imports
+import React from "react";
 import "./App.scss";
-import PlantSearch from "../components/PlantSearch/PlantSearch";
 //Package Imports
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+//Components
+import PlantSearch from "../components/PlantSearch/PlantSearch";
 import EdiblePlantSearch from "../components/EdiblePlantSearch/EdiblePlantSearch";
 import Nav from "../components/Nav/Nav";
-
-// *
-// Artifacts
-// import CharacterSearch from "../components/CharacterSearch/CharacterSearch";
-// import CharacterComics from "../components/CharacterComics/CharacterComics";
+import Home from "../components/Home/Home";
 
 function App() {
   return (
@@ -18,6 +14,9 @@ function App() {
       <div className="App">
         <Nav />
         <Switch>
+          <Route path="/home">
+            <Home />
+          </Route>
           <Route path="/edible-plants">
             <EdiblePlantSearch />
           </Route>
@@ -25,9 +24,6 @@ function App() {
             <PlantSearch />
           </Route>
         </Switch>
-
-        {/* <CharacterSearch />
-        <CharacterComics /> */}
       </div>
     </Router>
   );
