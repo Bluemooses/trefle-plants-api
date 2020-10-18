@@ -31,7 +31,9 @@ function SearchResults() {
                 />
               );
             })}
-          <Pagination />
+          <div>
+            <Pagination />
+          </div>
         </div>
       )}
     </div>
