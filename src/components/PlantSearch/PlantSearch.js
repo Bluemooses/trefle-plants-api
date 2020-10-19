@@ -23,7 +23,7 @@ function PlantSearch(props) {
           onChange={(e) => {
             setSearchQuery(e.target.value);
           }}
-        ></SearchInput>
+        />
         <PlantButton
           className={"getPlants"}
           text={"Search"}

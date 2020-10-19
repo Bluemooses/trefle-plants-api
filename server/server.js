@@ -26,9 +26,15 @@ app.use("/api/plant-details", plantDetailsRouter);
 // Serve static files
 app.use(express.static("build"));
 
+app.use(express.static(path.join(__dirname, "build")));
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
+
 // App Set //
 const PORT = process.env.PORT || 5000;
 
+app.listen(3000);
 /** Listen * */
 app.listen(PORT, () => {
   console.log(`Listening on port: ${PORT}`);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./Pagination.scss";
 import { useDispatch, useSelector } from "react-redux";
 import querystring from "querystring";
@@ -9,27 +9,17 @@ function Pagination(props) {
   const { last } = pages;
   const lastPageSplitter = last.split(/&q|=/);
   const lastPageValue = lastPageSplitter[2];
-
+  const pageNumbers = props.pageNumbers;
+  const dispatch = useDispatch();
   console.log(lastPageValue);
 
-  const dispatch = useDispatch();
-  //hooks
-  const [pageNumbers, setPageNumbers] = useState(0);
   //declarations
   const rawUrl = `https://trefle.io/${pages.last}`;
   const parsedUrl = url.parse(rawUrl);
   const parsedQs = querystring.parse(parsedUrl.query);
-  const pageValue = parsedQs.page;
-  let numberOfPages = [];
 
   //setNumberOfPages awaiting numberOfPages, pageValue
-  useEffect(function setNumberOfPages() {
-    for (let i = 1; i <= pageValue; i++) {
-      numberOfPages.push({ i: i });
-    }
-
-    setPageNumbers(numberOfPages);
-  }, []);
+  console.log(props);
 
   //dispatch number value with the current query information to find matching page number
   function goToDirectPage(page) {
