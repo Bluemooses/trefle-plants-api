@@ -13,7 +13,6 @@ function EdiblePlantSearch(props) {
   const [searchQuery, setSearchQuery] = useState(" ");
 
   const searchPlant = () => {
-    console.log("click");
     dispatch({ type: "NEW_SEARCH_PARAMS" });
     dispatch({ type: "SEARCH_EDIBLE_PLANTS", payload: searchQuery });
   };

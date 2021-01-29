@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import PlantButton from "../../../styles/buttons/getPlantButton";
 import { useSpring, animated } from "react-spring";
+import { useSelector } from "react-redux";
 
 function PlantCard(props) {
   const plant = props.plant;
+  const plant_details = useSelector(state => state.plantDetails.data);
   const getPlantDetails = props.getPlantDetails;
   const springProps = useSpring({ opacity: 1, from: { opacity: 0 } });
   const [flipped, set] = useState(false);
@@ -23,11 +25,12 @@ function PlantCard(props) {
           }}
         >
           <div className="center" onClick={() => set((state) => !state)}>
+            {plant_details && <p>{plant_details.common_name}</p>}
             <PlantButton
               className="getPlantDetails"
               // function={() => getPlantDetails(plant)}
               // onClick={() => getPlantDetails(plant)}
-              text="Reverse Card"
+              text="Back"
             ></PlantButton>
           </div>
         </animated.div>

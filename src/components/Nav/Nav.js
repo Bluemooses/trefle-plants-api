@@ -17,9 +17,6 @@ function Nav() {
       <Link to="/all-plants" onClick={resetSearch}>
         All Plants
       </Link>
-      <Link onClick={resetSearch} to="/vegetables">
-        Vegetables
-      </Link>
     </div>
   );
 }
